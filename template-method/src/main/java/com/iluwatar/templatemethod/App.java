@@ -32,15 +32,20 @@ package com.iluwatar.templatemethod;
  */
 public class App {
 
-  /**
-   * Program entry point.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-    var thief = new HalflingThief(new HitAndRunMethod());
-    thief.steal();
-    thief.changeMethod(new SubtleMethod());
-    thief.steal();
-  }
+    /**
+     * Program entry point.
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
+        //コンストラクタにHitAndRunMethodクラスのインスタンスを渡してHalflingThiefのインスタンス生成
+        var thief = new HalflingThief(new HitAndRunMethod());
+        //stealメソッドを呼ぶ
+        thief.steal();
+
+        //引数としてSubtleMethodクラスのインスタンスを渡してchangeMethodを呼ぶ
+        thief.changeMethod(new SubtleMethod());
+        //stealメソッドを呼ぶ
+        thief.steal();
+    }
 }

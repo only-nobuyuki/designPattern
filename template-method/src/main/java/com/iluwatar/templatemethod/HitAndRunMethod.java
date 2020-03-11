@@ -31,20 +31,23 @@ import org.slf4j.LoggerFactory;
  */
 public class HitAndRunMethod extends StealingMethod {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(HitAndRunMethod.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HitAndRunMethod.class);
 
-  @Override
-  protected String pickTarget() {
-    return "old goblin woman";
-  }
+    @Override
+    protected String pickTarget() {
 
-  @Override
-  protected void confuseTarget(String target) {
-    LOGGER.info("Approach the {} from behind.", target);
-  }
+        return "メスゴブリン";
+    }
 
-  @Override
-  protected void stealTheItem(String target) {
-    LOGGER.info("Grab the handbag and run away fast!");
-  }
+    @Override
+    protected void confuseTarget(String target) {
+
+        LOGGER.info("後ろから{}に近づく.", target);
+    }
+
+    @Override
+    protected void stealTheItem(String target) {
+
+        LOGGER.info("ハンドバッグをつかんで素早く逃げる!");
+    }
 }

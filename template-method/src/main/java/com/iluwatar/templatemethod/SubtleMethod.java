@@ -31,20 +31,22 @@ import org.slf4j.LoggerFactory;
  */
 public class SubtleMethod extends StealingMethod {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SubtleMethod.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SubtleMethod.class);
 
-  @Override
-  protected String pickTarget() {
-    return "shop keeper";
-  }
+    @Override
+    protected String pickTarget() {
 
-  @Override
-  protected void confuseTarget(String target) {
-    LOGGER.info("Approach the {} with tears running and hug him!", target);
-  }
+      return "店主";
+    }
 
-  @Override
-  protected void stealTheItem(String target) {
-    LOGGER.info("While in close contact grab the {}'s wallet.", target);
-  }
+    @Override
+    protected void confuseTarget(String target) {
+        LOGGER.info("涙を流しながら{}に近づき、彼を抱きしめます!", target);
+    }
+
+    @Override
+    protected void stealTheItem(String target) {
+
+        LOGGER.info("密接に接触している間に{}のウォレットをつかむ.", target);
+    }
 }

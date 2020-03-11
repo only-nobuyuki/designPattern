@@ -28,17 +28,28 @@ package com.iluwatar.templatemethod;
  */
 public class HalflingThief {
 
-  private StealingMethod method;
 
-  public HalflingThief(StealingMethod method) {
-    this.method = method;
-  }
+    //StealingMethod型の変数を宣言
+    private StealingMethod method;
 
-  public void steal() {
-    method.steal();
-  }
+    //コンストラクタ
+    public HalflingThief(StealingMethod method) {
 
-  public void changeMethod(StealingMethod method) {
-    this.method = method;
-  }
+        //引数をmethodに渡す
+        this.method = method;
+    }
+
+    //stealメソッドを定義
+    public void steal() {
+
+
+        method.steal();
+    }
+
+    //changeMethodメソッドを定義
+    public void changeMethod(StealingMethod method) {
+
+        //引数をmethodに渡す
+        this.method = method;
+    }
 }
