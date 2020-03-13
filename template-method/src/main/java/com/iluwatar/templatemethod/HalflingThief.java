@@ -42,7 +42,6 @@ public class HalflingThief {
     //stealメソッドを定義
     public void steal() {
 
-
         method.steal();
     }
 
@@ -52,4 +51,6 @@ public class HalflingThief {
         //引数をmethodに渡す
         this.method = method;
     }
+
+
 }

@@ -49,4 +49,10 @@ public class SubtleMethod extends StealingMethod {
 
         LOGGER.info("密接に接触している間に{}のウォレットをつかむ.", target);
     }
+
+    @Override
+    protected void giveBack(String target){
+        LOGGER.info("気づかれないように{}の懐にそっと戻した.", target);
+
+    }
 }

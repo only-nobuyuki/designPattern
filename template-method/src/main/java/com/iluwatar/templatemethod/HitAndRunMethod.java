@@ -50,4 +50,10 @@ public class HitAndRunMethod extends StealingMethod {
 
         LOGGER.info("ハンドバッグをつかんで素早く逃げる!");
     }
+
+    @Override
+    protected void giveBack(String target){
+        LOGGER.info("{}の目の前に落とした.", target);
+
+    }
 }

@@ -43,13 +43,15 @@ public abstract class StealingMethod {
 
     protected abstract void stealTheItem(String target);
 
-    /**
-     * Steal.
-     */
+    protected abstract void giveBack(String target);
+
+    //stealメソッドを宣言。
     public void steal() {
+        //pickTargetメソッドの戻り値を変数targetに設定。
         var target = pickTarget();
         LOGGER.info("ターゲットは{}として選択されました.", target);
         confuseTarget(target);
         stealTheItem(target);
+        giveBack(target);
     }
 }
