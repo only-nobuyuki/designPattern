@@ -28,10 +28,21 @@ package com.iluwatar.builder;
  */
 public enum Weapon {
 
-  DAGGER, SWORD, AXE, WARHAMMER, BOW;
+    DAGGER("短剣"),
+    SWORD("長剣"),
+    AXE("斧"),
+    WARHAMMER("戦斧"),
+    BOW("弓");
 
-  @Override
-  public String toString() {
-    return name().toLowerCase();
-  }
+    private final String japanese;
+
+    Weapon(String japanese) {
+        this.japanese = japanese;
+    }
+
+
+    @Override
+    public String toString() {
+        return japanese;
+    }
 }

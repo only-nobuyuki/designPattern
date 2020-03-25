@@ -28,17 +28,22 @@ package com.iluwatar.builder;
  */
 public enum HairType {
 
-  BALD("bald"), SHORT("short"), CURLY("curly"), LONG_STRAIGHT("long straight"), LONG_CURLY(
-      "long curly");
+    BALD("スキンヘッド"),
+    SHORT("ショートヘア"),
+    CURLY("アフロ"),
+    LONG_STRAIGHT("ロングヘア"),
+    LONG_CURLY("ロングカール");
 
-  private final String title;
+    private final String japanese;
 
-  HairType(String title) {
-    this.title = title;
-  }
+    HairType(String japanese) {
 
-  @Override
-  public String toString() {
-    return title;
-  }
+        this.japanese = japanese;
+    }
+
+    @Override
+    public String toString() {
+
+        return japanese;
+    }
 }

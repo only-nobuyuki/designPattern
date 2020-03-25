@@ -28,54 +28,57 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The intention of the Builder pattern is to find a solution to the telescoping constructor
- * anti-pattern. The telescoping constructor anti-pattern occurs when the increase of object
- * constructor parameter combination leads to an exponential list of constructors. Instead of using
- * numerous constructors, the builder pattern uses another object, a builder, that receives each
- * initialization parameter step by step and then returns the resulting constructed object at once.
+ * Builderパターンの意図は、伸縮するコンストラクタの解決策を見つけることです。
+ * アンチパターン。テレスコープコンストラクタのアンチパターンは、オブジェクトの
+ * コンストラクタのパラメータの組み合わせは、指数関数的なリストになります。コンストラクタを使用する代わりに
+ * ビルダーパターンでは、別のオブジェクトであるビルダーを使用します。
+ * 初期化パラメータをステップバイステップで設定し、構築されたオブジェクトを一度に返します。
  *
- * <p>The Builder pattern has another benefit. It can be used for objects that contain flat data
- * (html code, SQL query, X.509 certificate...), that is to say, data that can't be easily edited.
- * This type of data cannot be edited step by step and must be edited at once. The best way to
- * construct such an object is to use a builder class.
+ <p>ビルダーパターンにはもう一つの利点があります。それは、フラットなデータを含むオブジェクトに使用することができます。
+ * (htmlコード、SQLクエリ、X.509証明書など)、つまり簡単に編集できないデータです。
+ * このタイプのデータは、段階的に編集することができず、一度に編集する必要があります。一番良い方法は、以下の通りです。
+ * このようなオブジェクトを構築するには、ビルダークラスを使用します。
  *
- * <p>In this example we have the Builder pattern variation as described by Joshua Bloch in
+ <p>この例では、Joshua Bloch氏が以下で説明しているように、Builderパターンのバリエーションを使用しています。
  * Effective Java 2nd Edition.
  *
- * <p>We want to build {@link Hero} objects, but its construction is complex because of the many
- * parameters needed. To aid the user we introduce {@link Builder} class. {@link Hero.Builder} takes
- * the minimum parameters to build {@link Hero} object in its constructor. After that additional
- * configuration for the {@link Hero} object can be done using the fluent {@link Builder} interface.
- * When configuration is ready the build method is called to receive the final {@link Hero} object.
+ <p>{@link Hero}オブジェクトを構築したいのですが、多くのオブジェクトがあるため構築が複雑です。
+ * 必要なパラメータを指定します。ユーザーを支援するために、{@link Builder}クラスを紹介します。リンクHero.Builder}は
+ * リンクヒーロー}オブジェクトを構築するための最低限のパラメータをコンストラクタで指定します。その後、追加の
+ * {@link Hero}オブジェクトの設定は、流暢な{@link Builder}インターフェイスを使用して行います。
+ * 設定の準備ができたら、最終的な {@link Hero} オブジェクトを受け取るために build メソッドが呼ばれます。
  */
 public class App {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-  /**
-   * Program entry point.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) {
+    /**
+     * Program entry point.
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
 
-    var mage = new Hero.Builder(Profession.MAGE, "Riobard")
-        .withHairColor(HairColor.BLACK)
-        .withWeapon(Weapon.DAGGER)
-        .build();
-    LOGGER.info(mage.toString());
+        Hero.Builder mage = new Hero.Builder(Profession.MAGE, "Riobard");
+        //mage.withHairColor(HairColor.BLACK);
+        //mage.withWeapon(Weapon.DAGGER);
+        Hero man = mage.build();
+        //LOGGER.info(mage.toString());
+        System.out.println(man.getName());
 
-    var warrior = new Hero.Builder(Profession.WARRIOR, "Amberjill")
-        .withHairColor(HairColor.BLOND)
-        .withHairType(HairType.LONG_CURLY).withArmor(Armor.CHAIN_MAIL).withWeapon(Weapon.SWORD)
-        .build();
-    LOGGER.info(warrior.toString());
+        var warrior = new Hero.Builder(Profession.WARRIOR, "Amberjill");
+        warrior.withHairColor(HairColor.BLOND);
+        warrior.withHairType(HairType.LONG_CURLY);
+        warrior.withArmor(Armor.CHAIN_MAIL);
+        warrior.withWeapon(Weapon.SWORD);
+        warrior.build();
+        LOGGER.info(warrior.toString());
 
-    var thief = new Hero.Builder(Profession.THIEF, "Desmond")
-        .withHairType(HairType.BALD)
-        .withWeapon(Weapon.BOW)
-        .build();
-    LOGGER.info(thief.toString());
+        var thief = new Hero.Builder(Profession.THIEF, "Desmond");
+        thief.withHairType(HairType.BALD);
+        thief.withWeapon(Weapon.BOW);
+        thief.build();
+        LOGGER.info(thief.toString());
 
-  }
+    }
 }

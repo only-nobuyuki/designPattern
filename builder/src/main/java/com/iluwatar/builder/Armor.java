@@ -28,16 +28,19 @@ package com.iluwatar.builder;
  */
 public enum Armor {
 
-  CLOTHES("clothes"), LEATHER("leather"), CHAIN_MAIL("chain mail"), PLATE_MAIL("plate mail");
+    CLOTHES("服"),
+    LEATHER("革の鎧"),
+    CHAIN_MAIL("チェインメイル"),
+    PLATE_MAIL("プレートメイル");
 
-  private final String title;
+    private final String japanese;
 
-  Armor(String title) {
-    this.title = title;
-  }
+    Armor(String japanese) {
+        this.japanese = japanese;
+    }
 
-  @Override
-  public String toString() {
-    return title;
-  }
+    @Override
+    public String toString() {
+        return japanese;
+    }
 }

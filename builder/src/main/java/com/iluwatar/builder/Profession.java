@@ -28,10 +28,19 @@ package com.iluwatar.builder;
  */
 public enum Profession {
 
-  WARRIOR, THIEF, MAGE, PRIEST;
+    WARRIOR("戦士"),
+    THIEF("盗賊"),
+    MAGE("魔術師"),
+    PRIEST("神官");
 
-  @Override
-  public String toString() {
-    return name().toLowerCase();
-  }
+    private final String japanese;
+
+    Profession(String japanese) {
+        this.japanese = japanese;
+    }
+
+    @Override
+    public String toString() {
+        return japanese;
+    }
 }

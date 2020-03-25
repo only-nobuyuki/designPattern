@@ -28,11 +28,22 @@ package com.iluwatar.builder;
  */
 public enum HairColor {
 
-  WHITE, BLOND, RED, BROWN, BLACK;
+    WHITE("ホワイト"),
+    BLOND("ブロンド"),
+    RED("赤髪"),
+    BROWN("ブラウン"),
+    BLACK("黒髪");
 
-  @Override
-  public String toString() {
-    return name().toLowerCase();
-  }
+    private  final String japanese;
+
+    HairColor(String japanese) {
+        this.japanese = japanese;
+    }
+
+    @Override
+    public String toString() {
+
+        return japanese;
+    }
 
 }
